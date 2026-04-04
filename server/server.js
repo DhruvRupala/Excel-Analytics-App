@@ -17,48 +17,21 @@ dotenv.config()
 const app = express()
 
 // ---------------------------------------------------------------------------
-// CORS Configuration — Production-Ready
+// CORS Configuration — Production-Ready & Stable
 // ---------------------------------------------------------------------------
-// Whitelist of allowed origins (never use "*" with credentials)
 const allowedOrigins = [
-  "http://localhost:3000",                  // Local CRA dev server
-  "http://localhost:5173",                  // Vite dev server (if ever used)
-  "https://rdexcel.vercel.app",             // Production frontend (hardcoded fallback)
-  process.env.CLIENT_URL                    // Production frontend from env var
-    ? process.env.CLIENT_URL.replace(/\/+$/, "")
-    : null,
-].filter(Boolean) // Remove undefined/null/duplicate entries
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://rdexcel.vercel.app",
+  process.env.CLIENT_URL ? process.env.CLIENT_URL.replace(/\/+$/, "") : null
+].filter(Boolean);
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests with no origin (mobile apps, curl, Postman, server-to-server)
-    if (!origin) return callback(null, true)
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true)
-    } else {
-      console.warn(`CORS blocked request from origin: ${origin}`)
-      callback(new Error(`Origin ${origin} not allowed by CORS`))
-    }
-  },
-  credentials: true,                        // Allow cookies & Authorization headers
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization",
-    "X-Requested-With",
-    "Accept",
-    "Origin",
-  ],
-  exposedHeaders: ["Content-Disposition"],   // Useful for file downloads
-  maxAge: 86400,                             // Cache preflight for 24 hours
-}
-
-// Apply CORS middleware
-app.use(cors(corsOptions))
-
-// Explicitly handle preflight (OPTIONS) for all routes
-app.options("*", cors(corsOptions))
+  allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept", "Origin"]
+}));
 
 // ---------------------------------------------------------------------------
 // Request logger (helpful for debugging CORS issues in production)
@@ -115,13 +88,6 @@ app.get("/api/health", (req, res) => {
 // Error handling
 // ---------------------------------------------------------------------------
 app.use((error, req, res, next) => {
-  // Handle CORS errors specifically
-  if (error.message && error.message.includes("not allowed by CORS")) {
-    return res.status(403).json({
-      message: "CORS Error: Your origin is not allowed to access this resource.",
-    })
-  }
-
   console.error("Error:", error)
   res.status(error.status || 500).json({
     message: error.message || "Internal server error",
