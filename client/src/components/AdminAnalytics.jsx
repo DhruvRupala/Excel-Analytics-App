@@ -10,6 +10,7 @@ const AdminAnalytics = () => {
   const [stats, setStats] = useState({ totalUsers: 0, totalLogs: 0, recentLogs: [] })
   const [loading, setLoading] = useState(true)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchAdminStats() }, [])
 
   const fetchAdminStats = async () => {

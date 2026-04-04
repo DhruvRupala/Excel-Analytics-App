@@ -11,6 +11,7 @@ const Dashboard = () => {
   const [stats, setStats] = useState({ totalFiles: 0, totalRows: 0, recentUploads: [] })
   const [loading, setLoading] = useState(true)
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => { fetchDashboardStats() }, [])
 
   const fetchDashboardStats = async () => {

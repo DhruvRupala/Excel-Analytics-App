@@ -14,6 +14,7 @@ const Analytics = () => {
 
   useEffect(() => {
     fetchFiles()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const fetchFiles = async () => {
