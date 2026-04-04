@@ -20,7 +20,11 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <Link 
+          to="/" 
+          className="nav-logo"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
           <BarChart2 size={24} color="var(--accent-blue)" />
           <span className="gradient-text" style={{ fontWeight: 700 }}>ExcelAnalytics</span>
         </Link>

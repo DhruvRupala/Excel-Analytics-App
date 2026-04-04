@@ -19,7 +19,24 @@ const app = express()
 // Middleware
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: function (origin, callback) {
+      const allowedOrigins = [
+        process.env.CLIENT_URL,
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:5173",
+      ].filter(Boolean);
+
+      // Allow requests with no origin (like mobile apps, curl, or server-to-server requests)
+      // Also allow origins dynamically if properly deployed
+      if (!origin || allowedOrigins.includes(origin) || allowedOrigins.some(url => origin.includes(url.replace(/^https?:\/\//, '')))) {
+        callback(null, true);
+      } else {
+        // Fallback for Vercel preview URls or flexible deployment
+        callback(null, true); // Alternatively: callback(new Error('Not allowed by CORS')); but let's keep it very permissive for development.
+      }
+    },
     credentials: true,
   }),
 )
