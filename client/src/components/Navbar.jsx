@@ -2,13 +2,11 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useAuth } from "../context/authContext"
-import { useTheme } from "../context/themeContext"
 import { motion, AnimatePresence } from "framer-motion"
 import { Bell, LogOut, BarChart2 } from "lucide-react"
 
 const Navbar = () => {
   const { user, logout } = useAuth()
-  const { theme } = useTheme()
   const [showNotifications, setShowNotifications] = useState(false)
 
   const notifications = [

@@ -3,13 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom"
 import { useAuth } from "../context/authContext"
 import { Home, Upload, ClipboardList, BarChart, LineChart, Brain, Settings, User, LogOut, ChevronLeft, ChevronRight, BarChart2, ShieldAlert, Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { useTheme } from "../context/themeContext"
 
 const Sidebar = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const { logout, user } = useAuth()
-  const { theme } = useTheme()
   const [collapsed, setCollapsed] = useState(false)
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768)
   const [mobileOpen, setMobileOpen] = useState(false)
