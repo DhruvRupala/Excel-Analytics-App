@@ -15,7 +15,7 @@ const AdminAnalytics = () => {
 
   const fetchAdminStats = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/stats", { headers: { Authorization: `Bearer ${token}` } })
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/admin/stats", { headers: { Authorization: `Bearer ${token}` } })
       if (response.ok) setStats(await response.json())
     } catch (error) { console.error("Error fetching admin stats:", error) }
     finally { setLoading(false) }

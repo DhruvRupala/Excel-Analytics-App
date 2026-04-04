@@ -21,7 +21,7 @@ const AIAnalytics = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/files", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/files", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -56,7 +56,7 @@ const AIAnalytics = () => {
     setAiResponse(null)
 
     try {
-      const response = await fetch("http://localhost:5000/api/ai/query", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/ai/query", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
