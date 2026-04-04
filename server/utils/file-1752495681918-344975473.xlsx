@@ -1,0 +1,11 @@
+EmployeeID,FirstName,LastName,Department,Position,Salary,HireDate,Email
+1001,Alice,Smith,Sales,Sales Manager,75000,2020-01-15,alice.s@example.com
+1002,Bob,Johnson,Marketing,Marketing Specialist,55000,2021-03-01,bob.j@example.com
+1003,Charlie,Brown,Engineering,Software Engineer,90000,2019-07-20,charlie.b@example.com
+1004,Diana,Prince,HR,HR Coordinator,60000,2022-05-10,diana.p@example.com
+1005,Eve,Davis,Sales,Sales Representative,65000,2021-11-01,eve.d@example.com
+1006,Frank,Miller,Engineering,DevOps Engineer,95000,2018-09-01,frank.m@example.com
+1007,Grace,Wilson,Marketing,Content Creator,58000,2023-02-14,grace.w@example.com
+1008,Henry,Moore,Finance,Accountant,70000,2020-08-01,henry.m@example.com
+1009,Ivy,Taylor,HR,Recruiter,62000,2022-01-01,ivy.t@example.com
+1010,Jack,White,Sales,Sales Director,110000,2017-04-01,jack.w@example.com

@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Next.js / React build output
+.next/
+out/
+build/
+dist/
+
+# Environment Variables
+.env
+.env.*
+
+# Vercel
+.vercel
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# OS specific files
+.DS_Store
+Thumbs.db
