@@ -23,8 +23,11 @@ const app = express()
 const allowedOrigins = [
   "http://localhost:3000",                  // Local CRA dev server
   "http://localhost:5173",                  // Vite dev server (if ever used)
-  process.env.CLIENT_URL?.replace(/\/+$/, ""), // Production frontend (strip trailing slash)
-].filter(Boolean) // Remove undefined/null entries
+  "https://rdexcel.vercel.app",             // Production frontend (hardcoded fallback)
+  process.env.CLIENT_URL                    // Production frontend from env var
+    ? process.env.CLIENT_URL.replace(/\/+$/, "")
+    : null,
+].filter(Boolean) // Remove undefined/null/duplicate entries
 
 const corsOptions = {
   origin: function (origin, callback) {
