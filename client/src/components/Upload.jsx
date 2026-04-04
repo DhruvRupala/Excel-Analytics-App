@@ -49,7 +49,7 @@ const Upload = () => {
         setUploading(false)
       }
       xhr.onerror = () => { setMessage("Upload failed. Please try again."); setUploading(false); setUploadProgress(0) }
-      xhr.open("POST", (process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/files/upload")
+      xhr.open("POST", (process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000") + "/api/files/upload")
       xhr.setRequestHeader("Authorization", `Bearer ${token}`)
       xhr.send(formData)
     } catch (error) {

@@ -19,7 +19,7 @@ const ResetPassword = () => {
     setLoading(true); setMessage(""); setError("")
     if (formData.password !== formData.confirmPassword) { setError("Passwords do not match"); setLoading(false); return }
     try {
-      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000"}/api/users/reset-password/${token}`, {
+      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000"}/api/users/reset-password/${token}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password: formData.password }),

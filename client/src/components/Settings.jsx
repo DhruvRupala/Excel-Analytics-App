@@ -22,7 +22,7 @@ const Settings = () => {
     e.preventDefault(); setLoading(true); setMessage("")
     if (passwordData.newPassword !== passwordData.confirmPassword) { setMessage("New passwords do not match"); setLoading(false); return }
     try {
-      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/users/change-password", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000") + "/api/users/change-password", {
         method: "PUT", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
         body: JSON.stringify({ currentPassword: passwordData.currentPassword, newPassword: passwordData.newPassword }),
       })
@@ -37,7 +37,7 @@ const Settings = () => {
     if (!window.confirm("Are you sure you want to delete your account? This action is irreversible.")) return
     setDeleteLoading(true); setMessage("")
     try {
-      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/users/delete-account", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000") + "/api/users/delete-account", {
         method: "DELETE", headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       })
       const data = await response.json()

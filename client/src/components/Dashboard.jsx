@@ -16,7 +16,7 @@ const Dashboard = () => {
 
   const fetchDashboardStats = async () => {
     try {
-      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/files/stats", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000") + "/api/files/stats", {
         headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
       })
       if (response.ok) setStats(await response.json())

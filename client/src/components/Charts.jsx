@@ -45,7 +45,7 @@ const Charts = () => {
 
   const fetchFiles = async () => {
     try {
-      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000") + "/api/files", {
+      const response = await fetch((process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000") + "/api/files", {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -66,7 +66,7 @@ const Charts = () => {
   const fetchFileData = async (fileId) => {
     setDataLoading(true)
     try {
-      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000"}/api/files/${fileId}/data`, {
+      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000"}/api/files/${fileId}/data`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const Charts = () => {
 
   const fetchFileAnalytics = async (fileId) => {
     try {
-      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-e3f6.onrender.com" : "http://localhost:5000"}/api/files/${fileId}/analytics`, {
+      const response = await fetch(`${process.env.NODE_ENV === "production" ? "https://excel-analytics-app-19wy.onrender.com" : "http://localhost:5000"}/api/files/${fileId}/analytics`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
