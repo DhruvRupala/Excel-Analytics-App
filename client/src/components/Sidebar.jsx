@@ -77,8 +77,8 @@ const Sidebar = () => {
             </AnimatePresence>
           </Link>
           {isMobile && (
-            <button onClick={() => setMobileOpen(false)} style={{ background: "none", border: "none", color: "var(--text-secondary)", cursor: "pointer", display: "flex", padding: "4px" }}>
-              <X size={20} />
+            <button onClick={() => setMobileOpen(false)} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid var(--glass-border)", borderRadius: "8px", color: "var(--text-secondary)", cursor: "pointer", display: "flex", padding: "8px", transition: "all 0.2s" }} onMouseOver={(e) => { e.currentTarget.style.color = "var(--text-primary)"; e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }} onMouseOut={(e) => { e.currentTarget.style.color = "var(--text-secondary)"; e.currentTarget.style.background = "rgba(255,255,255,0.05)"; }}>
+              <X size={22} />
             </button>
           )}
         </div>
