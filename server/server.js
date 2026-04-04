@@ -49,10 +49,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 // Database connection
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/excel-analytics", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/excel-analytics")
   .then(() => {
     console.log("Connected to MongoDB")
   })
