@@ -36,7 +36,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <Sidebar />
-      <main className="dashboard-main" style={{ padding: "36px" }}>
+      <main className="dashboard-main">
         <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} style={{ marginBottom: "36px" }}>
           <h1 style={{ fontSize: "2.2rem", fontWeight: 800, marginBottom: "8px" }}>Dashboard</h1>
           <p style={{ color: "var(--text-secondary)", fontSize: "1.05rem" }}>Welcome back, {user?.name}!</p>
