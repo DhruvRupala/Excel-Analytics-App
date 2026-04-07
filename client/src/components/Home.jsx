@@ -15,7 +15,7 @@ const Home = () => {
   ]
 
   return (
-    <div className="home-container">
+    <div className="home-container" style={{ paddingTop: "64px" }}>
       <Navbar />
 
       <main style={{ flex: 1 }}>

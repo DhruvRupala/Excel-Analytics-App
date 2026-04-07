@@ -41,7 +41,7 @@ const Sidebar = () => {
     <>
       {/* Mobile top bar */}
       {isMobile && (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 20px", background: "rgba(5,5,16,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid var(--glass-border)", width: "100%", zIndex: 90, position: "sticky", top: 0 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "14px 20px", background: "rgba(5,5,16,0.9)", backdropFilter: "blur(20px)", borderBottom: "1px solid var(--glass-border)", width: "100%", zIndex: 1000, position: "fixed", top: 0, left: 0, right: 0 }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
             <BarChart2 size={22} color="var(--accent-blue)" />
             <span className="gradient-text" style={{ fontWeight: "bold", fontSize: "1.1rem" }}>ExcelAnalytics</span>
